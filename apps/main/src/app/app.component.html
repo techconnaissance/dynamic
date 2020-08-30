@@ -1,0 +1,48 @@
+
+<header class="flex">
+  <img
+    alt="Nx logo"
+    width="75"
+    src="https://nx.dev/assets/images/nx-logo-white.svg"
+  />
+  <h1>Welcome to {{ title }}!</h1>
+</header>
+<main>
+  <muyarchitech-top-nav title="Muyarchi" [menuitems]="menuitems"></muyarchitech-top-nav>
+  <br/>
+  <!-- <muyarchitech-form-input [config]="configforminput"></muyarchitech-form-input>
+  <muyarchitech-form-input [config]="configforminput1"></muyarchitech-form-input>
+  <muyarchitech-form-input [config]="configforminput2"></muyarchitech-form-input>
+  <muyarchitech-form-input [config]="configforminput3"></muyarchitech-form-input>
+  <muyarchitech-form-input [config]="configforminput4"></muyarchitech-form-input>
+  <muyarchitech-form-input [config]="configforminput5"></muyarchitech-form-input>
+ -->
+
+  <form [formGroup] ="mregistrationForm" (ngSubmit)="onmSubmit()">
+    <div class="container">
+      <h1>Register using Muyarchi controls</h1>
+      <hr>
+  
+      <muyarchitech-form-input [config]="configforminputUserName" [group] ="mregistrationForm" (changeEvent)="emailChange"></muyarchitech-form-input>
+  
+      <muyarchitech-form-input [config]="configforminputPassword" [group] ="mregistrationForm"></muyarchitech-form-input>
+  
+      <muyarchitech-form-input [config]="configforminputRepeatPassword" [group] ="mregistrationForm"></muyarchitech-form-input>
+      <hr>
+      <button type="submit" class="registerbtn">Register</button>
+    </div>
+    
+    <div class="container signin">
+      <p>Already have an account? <a href="#">Sign in</a>.</p>
+    </div>
+  </form>  
+
+  <dynamic-form
+    [config]="config"
+    [(componentInstance)]="componentInstance"
+    #form="dynamicForm"
+    (formCustomEvents)="formCustomEvents($event)"
+  >
+  </dynamic-form>
+
+</main>

@@ -1,0 +1,27 @@
+<div class="input-group mb-3" [formGroup]="group">
+    <div *ngIf='config.labelPosition && config.labelPosition==="prefix"' class="input-group-prepend">
+      <span class="input-group-text" id="basic-addon1">{{config.label}}</span>
+    </div>
+    <input *ngIf='config.type!=="textarea"' 
+            type="{{config.type}}" 
+            class="form-control {{config.class}}" 
+            #domInput
+            [formControlName]="config.name"
+            placeholder="{{config.placeholder}}" 
+            aria-describedby="basic-addon1" 
+            (input)="change($event)"
+            [readonly]="config.readonly">
+
+    <textarea 
+            *ngIf='config.type==="textarea"' 
+            class="form-control" 
+            [formControlName]="config.name"
+            aria-label="With textarea" 
+            (input)="change($event)"
+            [readonly]="config.readonly">
+    </textarea>
+
+    <div *ngIf='config.labelPosition && config.labelPosition==="suffix"' class="input-group-prepend">
+      <span class="input-group-text" id="basic-addon2">{{config.label}}</span>
+    </div>
+</div>
